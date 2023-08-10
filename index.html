@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travail pratique 1</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Travail pratique 1 (20%)</h1>
+    </header>
+    <div id="app">
+        <div id="content">
+            <div class="question">
+                <h2>Question 1. <span>(2pts)</span></h2>
+                <h3>
+                    Lors du clique sur le carré rose, afficher un chiffre au hasard entre 0 et 100 dans la console.
+                </h3>
+                <div class="q1" @click="clickRose()"></div>
+            </div>
+
+            <div class="question">
+                <h2>Question 2. <span>(2pts)</span></h2>
+                <h3>
+                    Lors du clique sur le carré gris, insérer votre prénom et nom au contenu texte dans ce bloc.
+                    Le texte s'affichera automatiquement en vert s'il est placé au bon endroit.
+                </h3>
+                <div class="q2" @click="clickGris()">{{ carre_gris }}</div>
+            </div>
+
+            <div class="question q3" @mouseenter="mouseEnter()" @mouseleave="mouseLeave()"
+                :style="{backgroundColor: background_color}">
+                <h2>Question 3. <span>(3pts)</span></h2>
+                <h3>
+                    À chaque fois que la souris entre à l'intérieur de la balise avec la classe <code>q3</code>, la
+                    couleur d'arrière-plan de ce div doit être changée pour une couleur aléatoire.
+                </h3>
+            </div>
+
+            <div class="question">
+                <h2>Question 4. <span>(2pts)</span></h2>
+                <h3>
+                    Cacher ou retirer tous les blocs jaunes <code>.q4</code> suivants à l'aide de Vue:
+                </h3>
+                <div v-if="carre_jaune_visible">
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                    <div class="q4"></div>
+                </div>
+            </div>
+
+            <div class="question q5" :style="{ fontFamily: current_font }">
+                <h2>Question 5. <span>(4pts)</span></h2>
+                <h3>
+                    Le texte de cette question doit changer de police (<code>font-family</code> en CSS)
+                    aléatoirement entre <code>Arial</code>, <code>Times</code> et <code>Verdana</code> à chaque 3
+                    secondes.
+                </h3>
+            </div>
+
+            <div class="question q6">
+                <h2>Question 6. <span>(4pts)</span></h2>
+                <h3>
+                    <p>
+                        La balise <code>&lt;img&gt;</code> suivant ce <code>&lt;p&gt;</code> doit changer de source
+                        aléatoirement entre <code>http://placekitten.com/300/100</code>,
+                        <code>http://placekitten.com/301/100</code> et <code>http://placekitten.com/302/100</code>
+                        lorsqu'on clique sur le bouton <code>.bt-q6</code>.
+                    </p>
+                    <div>
+                        <img :src="random_image">
+                    </div>
+
+                    <div class="bt-q6" @click="clickChat()"></div>
+                </h3>
+            </div>
+
+            <div class="question q7">
+                <h2>Question 7. <span>(3pts)</span></h2>
+                <h3>
+                    <p>
+                        Le prénom dans la phrase suivante doit se mettre à jour automatiquement selon ce qui est écris
+                        dans le input.
+                    </p>
+
+                    <p>
+                        Bonjour {{ nouveau_nom }}!
+                    </p>
+
+                    <p>
+                        <input v-model="nouveau_nom" type="text">
+                    </p>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
